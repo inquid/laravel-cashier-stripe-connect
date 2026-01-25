@@ -19,7 +19,7 @@ This update brings compatibility with Laravel Cashier 16.x which introduces supp
 To upgrade, run:
 ```bash
 composer update
-php artisan vendor:publish --tag="cashier-connect-migrations"
+php artisan vendor:publish --tag="migrations"
 php artisan migrate
 ```
 
@@ -48,6 +48,28 @@ The Cashier 15 update brought about a few changes to the package. These include:
 ## Intro
 
 This package is designed to seamlessly connect all of your eloquent models, mapping them to the relevant stripe entities in order to make a marketplace or payments platform.
+
+## Installation
+
+After installing the package via Composer, you can publish the configuration file to customize the package settings:
+
+```bash
+php artisan vendor:publish --provider="Lanos\CashierConnect\CashierConnectServiceProvider" --tag="config"
+```
+
+This will create a `cashierconnect.php` file in your `config` directory.
+
+You can also publish the migrations:
+
+```bash
+php artisan vendor:publish --provider="Lanos\CashierConnect\CashierConnectServiceProvider" --tag="migrations"
+```
+
+Or publish everything at once (config and migrations):
+
+```bash
+php artisan vendor:publish --provider="Lanos\CashierConnect\CashierConnectServiceProvider"
+```
 
 ## Documentation
 

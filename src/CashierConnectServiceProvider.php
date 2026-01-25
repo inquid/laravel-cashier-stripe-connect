@@ -49,10 +49,10 @@ class CashierConnectServiceProvider extends ServiceProvider
 
             $this->{$publishesMigrationsMethod}([
                 __DIR__.'/../database/migrations' => $this->app->databasePath('migrations'),
-            ], 'cashier-connect-migrations');
+            ], 'migrations');
             $this->{$publishesMigrationsMethod}([
                 __DIR__.'/../database/migrations' => $this->app->databasePath('migrations/tenant'),
-            ], 'cashier-connect-tenancy-migrations');
+            ], 'tenancy-migrations');
         }
     }
 
@@ -88,9 +88,11 @@ class CashierConnectServiceProvider extends ServiceProvider
      */
     protected function setupConfig()
     {
-        $this->publishes([
-            __DIR__.'/../config/cashierconnect.php' => config_path('cashierconnect.php'),
-        ]);
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/cashierconnect.php' => config_path('cashierconnect.php'),
+            ], 'config');
+        }
     }
 
 }
