@@ -78,6 +78,9 @@ trait ManagesConnectSubscriptions
 
     }
 
+    /**
+     * @return mixed
+     */
     public function getSubscriptions(){
         return $this->stripeAccountMapping->subscriptions;
     }
@@ -93,6 +96,11 @@ trait ManagesConnectSubscriptions
         return Subscription::retrieve($id, $this->stripeAccountOptions([], true));
     }
 
+    /**
+     * @param $customer
+     * @return mixed
+     * @throws Exception
+     */
     private function determineCustomerInput($customer)
     {
         if (gettype($customer) === 'string') {
@@ -102,6 +110,11 @@ trait ManagesConnectSubscriptions
         }
     }
 
+    /**
+     * @param $customer
+     * @return mixed
+     * @throws Exception
+     */
     private function handleConnectedCustomer($customer)
     {
         // IT IS A CUSTOMER TRAIT MODEL

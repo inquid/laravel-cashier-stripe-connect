@@ -7,6 +7,7 @@ use Lanos\CashierConnect\Exceptions\AccountAlreadyExistsException;
 use Lanos\CashierConnect\Exceptions\AccountNotFoundException;
 use Stripe\Account;
 use Stripe\ApplePayDomain;
+use Stripe\Collection;
 use Stripe\Exception\ApiErrorException;
 
 /**
@@ -17,12 +18,23 @@ use Stripe\Exception\ApiErrorException;
 trait ManagesApplePayDomain
 {
 
+    /**
+     * @param $domain
+     * @return ApplePayDomain
+     * @throws AccountNotFoundException
+     * @throws ApiErrorException
+     */
     public function addApplePayDomain($domain){
         $this->assertAccountExists();
         return ApplePayDomain::create(['domain_name' => $domain], $this->stripeAccountOptions([], true));
 
     }
 
+    /**
+     * @return Collection
+     * @throws AccountNotFoundException
+     * @throws ApiErrorException
+     */
     public function getApplePayDomains(){
         $this->assertAccountExists();
         return ApplePayDomain::all([], $this->stripeAccountOptions([], true));
