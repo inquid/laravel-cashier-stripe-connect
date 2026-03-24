@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2026-03-24
+
+### Changed
+- Added Laravel 13 support by expanding all `illuminate/*` constraints to include `^13.0`
+
 ## [1.3.0] - 2025-11-18
 
 ### Added
@@ -45,4 +50,3 @@ All notable changes to this project will be documented in this file.
 ## Earlier Versions
 
 See Git history for changes in versions prior to 1.1.0.
-

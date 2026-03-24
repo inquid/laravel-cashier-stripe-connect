@@ -54,7 +54,7 @@ The `connected_subscription_items` table now has two new columns:
 - Laravel Cashier: ^16.0
 - Stripe API: 2025-07-30.basil
 - PHP: ^7.4\|^8.1\|^8.2\|^8.3\|^8.4
-- Laravel: ^9.0\|^10.0\|^11.0\|^12.0
+- Laravel: ^9.0\|^10.0\|^11.0\|^12.0\|^13.0
 
 ### Notes
 
@@ -62,4 +62,3 @@ The `connected_subscription_items` table now has two new columns:
 - If you don't use metered billing, the new columns will remain NULL
 - Backward compatibility with previous Cashier versions (12.x, 13.x, 14.x, 15.x) is maintained
 - No existing code modifications are required if you don't use metered billing
-
